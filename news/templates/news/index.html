@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Tasks</p>
+<p>
+    {% if task_id %}
+    {{ task_id }}
+    {% endif %}
+</p>
+<p>
+    {% if task_status %}
+    {{ task_status }}
+    {% endif %}
+</p>
+<a href="{% url 'index' %}">Tadadadadaaaaam!</a>
+</body>
+</html>

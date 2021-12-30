@@ -1,14 +1,14 @@
 version: "3"
 
 services:
-  django_app:
-    build:
-      context: .
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./:/app
-    command: python manage.py runserver 0.0.0.0:8000
+#  django_app:
+  #    build:
+  #      context: .
+  #    ports:
+  #      - "8000:8000"
+  #    volumes:
+  #      - ./:/app
+  #    command: python manage.py runserver 0.0.0.0:8000
   rabbi:
     image: rabbitmq:3.9.11-management
     container_name: rabbi
