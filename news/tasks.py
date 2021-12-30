@@ -6,7 +6,7 @@ from celery import shared_task
 
 @shared_task
 def dodo():
-    with open('lalala.txt', 'w') as file:
-        file.write(get_random_string(10, string.ascii_letters))
+    with open('lalala.txt', 'a+') as file:
+        file.write(get_random_string(10, string.ascii_letters) + '\n')
 
     return "GOTOVO!"
