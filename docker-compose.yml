@@ -2,24 +2,43 @@ version: "3"
 
 services:
 #  django_app:
-  #    build:
-  #      context: .
-  #    ports:
-  #      - "8000:8000"
-  #    volumes:
-  #      - ./:/app
-  #    command: python manage.py runserver 0.0.0.0:8000
-  rabbi:
-    image: rabbitmq:3.9.11-management
-    container_name: rabbi
+#    build:
+#      context: .
+#    ports:
+#      - "8000:8000"
 #    volumes:
-#      - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
-#      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
-#      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
-    environment:
-      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
-    ports:
-      - 5672:5672
-      - 15672:15672
+#      - . :/app
+#    command: python manage.py runserver 0.0.0.0:8000
+    rabbi:
+      image: rabbitmq:3.9.11-management
+      container_name: rabbi
+  ##    volumes:
+  ##      - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
+  ##      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+  ##      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+  ##    environment:
+  ##      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+  ##      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+  ##      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+
+  #  db:
+  #    image: postgres
+  #    volumes:
+  #      - ./data/db:/var/lib/postgresql/data
+#  depends_on:
+#    - db
+
+#https://docs.docker.com/samples/django/
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': os.environ.get('POSTGRES_NAME'),
+#        'USER': os.environ.get('POSTGRES_USER'),
+#        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#        'HOST': 'db',
+#        'PORT': 5432,
+#    }
+#}
